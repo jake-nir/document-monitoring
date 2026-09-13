@@ -17,9 +17,15 @@ if ($unread > 0) {
     $notifs = [];
 }
 ?>
-<nav class="navbar navbar-expand navbar-light bg-white border-bottom px-3">
+<nav class="navbar navbar-expand topbar px-3">
     <button class="btn btn-outline-secondary d-md-none me-2" type="button" id="sidebarToggle"><i class="bi bi-list"></i></button>
-    <span class="navbar-brand fw-semibold mb-0 h6 d-none d-md-block"><?= e(setting('org_name', 'Document Monitoring System')) ?></span>
+    <div class="navbar-brand mb-0 d-none d-md-flex">
+        <img src="<?= BASE_URL ?>/public/assets/img/logo.svg" alt="Logo" class="brand-logo">
+        <span class="brand-text">
+            <strong><?= e(setting('org_name', 'Document Monitoring System')) ?></strong>
+            <small><?= e(setting('org_short', 'DMS')) ?> &middot; Document Monitoring</small>
+        </span>
+    </div>
 
     <div class="ms-auto d-flex align-items-center">
         <!-- Notifications -->
@@ -52,8 +58,9 @@ if ($unread > 0) {
 
         <!-- User menu -->
         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                <i class="bi bi-person-circle me-1"></i><?= e($user['full_name'] ?? '') ?>
+            <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+                <span class="avatar-circle"><?= e(initials($user['full_name'] ?? $user['username'] ?? 'U')) ?></span>
+                <span class="d-none d-sm-inline"><?= e($user['full_name'] ?? '') ?></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow">
                 <li><span class="dropdown-item-text small text-muted"><?= e(role_label($user['role'] ?? '')) ?></span></li>

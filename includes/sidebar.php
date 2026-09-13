@@ -39,12 +39,15 @@ if ($currentRole === ROLE_ADMIN) {
     $navItems[] = ['type' => 'link', 'href' => BASE_URL . '/admin/settings.php', 'icon' => 'bi-gear', 'label' => 'Settings', 'key' => 'settings'];
 }
 ?>
-<aside class="sidebar bg-dark text-white d-none d-md-flex flex-column flex-shrink-0">
-    <div class="sidebar-brand py-3 px-3 d-flex align-items-center">
-        <i class="bi bi-files me-2"></i>
-        <span class="fw-bold"><?= e(setting('org_short', 'DMS')) ?></span>
+<aside class="sidebar text-white d-none d-md-flex flex-column flex-shrink-0">
+    <div class="sidebar-brand d-flex align-items-center">
+        <img src="<?= BASE_URL ?>/public/assets/img/logo-light.svg" alt="Logo" class="brand-logo">
+        <span class="brand-name fw-bold">
+            <?= e(setting('org_short', 'DMS')) ?>
+            <span class="brand-sub">Document Monitoring</span>
+        </span>
     </div>
-    <hr class="text-secondary m-0">
+    <hr class="mx-1 my-0">
     <ul class="nav nav-pills flex-column mb-auto py-2 small">
         <?php foreach ($navItems as $item): ?>
             <?php if (($item['type'] ?? '') === 'heading'): ?>
@@ -63,9 +66,11 @@ if ($currentRole === ROLE_ADMIN) {
             <?php endif; ?>
         <?php endforeach; ?>
     </ul>
-    <div class="p-3 border-top small">
-        <div class="text-white-50 mb-1">Logged in as</div>
-        <div class="text-white fw-semibold"><?= e($user['full_name'] ?? '') ?></div>
-        <div class="text-white-50"><?= e(role_label($currentRole)) ?></div>
+    <div class="sidebar-user p-2 d-flex align-items-center gap-2">
+        <span class="avatar"><?= e(initials($user['full_name'] ?? $user['username'] ?? 'U')) ?></span>
+        <span class="text-truncate">
+            <span class="name d-block text-truncate"><?= e($user['full_name'] ?? '') ?></span>
+            <span class="role d-block text-truncate"><?= e(role_label($currentRole)) ?></span>
+        </span>
     </div>
 </aside>

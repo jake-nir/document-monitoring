@@ -86,6 +86,29 @@ function e(?string $value): string
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
+/**
+ * Returns up to 2 initials from a full name (falls back to username).
+ */
+function initials(string $name): string
+{
+    $name = trim($name);
+    if ($name === '') {
+        return '?';
+    }
+    $parts = preg_split('/\s+/', $name);
+    $initials = '';
+    foreach ((array)$parts as $p) {
+        if (count($parts) === 1 && strlen($p) > 1 && $initials === '') {
+            return strtoupper(substr($p, 0, 2));
+        }
+        $initials .= substr($p, 0, 1);
+        if (strlen($initials) >= 2) {
+            break;
+        }
+    }
+    return strtoupper($initials);
+}
+
 // ---------------------------------------------------------------------
 // Session bootstrap & timeout
 // ---------------------------------------------------------------------

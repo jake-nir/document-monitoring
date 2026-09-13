@@ -79,7 +79,7 @@ require_once CONFIG_PATH . DS . 'auth.php';
             <div class="card login-card shadow-lg border-0 rounded-4">
                 <div class="card-body p-4 p-md-5">
                     <div class="text-center mb-4">
-                        <div class="login-logo mx-auto mb-3"><i class="bi bi-files"></i></div>
+                        <div class="login-logo mx-auto mb-3"><img src="<?= BASE_URL ?>/public/assets/img/logo.svg" alt="Logo"></div>
                         <h4 class="fw-bold mb-1"><?= e(setting('org_name', 'Document Monitoring System')) ?></h4>
                         <p class="text-muted small mb-0">Sign in to continue</p>
                     </div>

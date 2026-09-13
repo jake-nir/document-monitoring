@@ -24,6 +24,15 @@ function page_header(string $title, string $activeNav, array $user, array $extra
     include INCLUDES_PATH . DS . 'navbar.php';
     echo '<main class="p-3 flex-grow-1">';
     include INCLUDES_PATH . DS . 'alerts.php';
+    if ($activeNav === 'dashboard') {
+        echo '<div class="dashboard-hero d-flex align-items-center gap-3">'
+           . '<span class="hero-icon"><i class="bi bi-speedometer2"></i></span>'
+           . '<div>'
+           . '<h2 class="hero-title">' . e('Good day, ' . ($user['full_name'] ?? explode('@', (string)($user['username'] ?? ''))[0])) . '</h2>'
+           . '<p class="hero-sub">' . e('Welcome to ' . setting('org_name', 'Document Monitoring System') . ' &mdash; here is your monitoring overview.') . '</p>'
+           . '</div>'
+           . '</div>';
+    }
 }
 
 function page_footer(): void

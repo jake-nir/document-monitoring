@@ -18,6 +18,7 @@ $orgName = e(setting('org_name', 'Document Monitoring System'));
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title><?= e($pgTitle) ?> | <?= $orgName ?></title>
+<link rel="icon" type="image/svg+xml" href="<?= BASE_URL ?>/public/assets/img/favicon.svg">
 <link rel="stylesheet" href="<?= BASE_URL ?>/public/assets/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="<?= BASE_URL ?>/public/assets/bootstrap-icons/bootstrap-icons.css">
 <link rel="stylesheet" href="<?= BASE_URL ?>/public/assets/css/app.css">
@@ -25,5 +26,5 @@ $orgName = e(setting('org_name', 'Document Monitoring System'));
 <link rel="stylesheet" href="<?= BASE_URL . e($css) ?>">
 <?php endforeach; endif; ?>
 </head>
-<body class="bg-light">
+<body class="bg-default">
 <div class="d-flex" id="app-wrapper">
