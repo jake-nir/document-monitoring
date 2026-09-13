@@ -76,7 +76,7 @@ require_once CONFIG_PATH . DS . 'auth.php';
 <div class="container">
     <div class="row justify-content-center align-items-center min-vh-100">
         <div class="col-md-5 col-lg-4">
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card login-card shadow-lg border-0 rounded-4">
                 <div class="card-body p-4 p-md-5">
                     <div class="text-center mb-4">
                         <div class="login-logo mx-auto mb-3"><i class="bi bi-files"></i></div>

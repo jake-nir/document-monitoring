@@ -53,14 +53,23 @@
 
 /* Login */
 .login-bg {
-  background: linear-gradient(135deg, #1f2a3a 0%, #0d6efd 100%);
+  background:
+    linear-gradient(135deg, rgba(17, 32, 58, 0.9) 0%, rgba(13, 110, 253, 0.55) 100%),
+    url('../img/login-bg.jpg') center/cover no-repeat fixed;
   min-height: 100vh;
+}
+.login-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.35) !important;
 }
 .login-logo {
   width: 64px;
   height: 64px;
   border-radius: 14px;
-  background: #0d6efd;
+  background: linear-gradient(135deg, #0d6efd, #4f8df9);
   color: #fff;
   display: flex;
   align-items: center;
